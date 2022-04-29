@@ -8,7 +8,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib import cm
 import seaborn as sns
-
+import pickle5 as pickle
 plt.rcParams["figure.dpi"] = 100
 
 import spacy
@@ -44,7 +44,8 @@ def get_features():
     if not(os.path.exists("data/training_spacy.pkl")):
         print("Please execute the topic_modelin.py file first.")
         exit(1)
-    training_set = pd.read_pickle("data/training_spacy.pkl")
+    with open("data/training_spacy.pkl", "rb") as fh:
+        training_set = pickle.load(fh)   
 
     training_set[["lemma", "pos", "ner"]].sample(3)
 
@@ -175,7 +176,8 @@ def get_features():
         # save to file
         training_set.to_pickle("data/training_features.pkl")
     else:
-        training_set = pd.read_pickle("data/training_features.pkl")
+        with open("data/training_features.pkl", "rb") as fh:
+            training_set = pickle.load(fh) 
 
     training_set[["lemma", "pos", "ner"]].sample(3)
 

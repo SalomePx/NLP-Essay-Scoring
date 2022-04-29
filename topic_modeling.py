@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import pickle5 as pickle
 
 import spacy
 from datetime import datetime
@@ -21,7 +22,8 @@ def spacy_analysis():
         exit(1)
 
     if not(os.path.exists("data/training_corr.pkl")):
-        training_set = pd.read_pickle("data/training_corr.pkl")
+        with open("data/training_corr.pkl", "rb") as fh:
+            training_set = pickle.load(fh)
 
         sents = []
         tokens = []
@@ -66,7 +68,8 @@ def spacy_analysis():
 
         training_set.to_pickle("data/training_spacy.pkl")
     else: 
-        training_set = pd.read_pickle("data/training_spacy.pkl")
+        with open("data/training_spacy.pkl", "rb") as fh:
+            training_set = pickle.load(fh)
 
     return training_set
 

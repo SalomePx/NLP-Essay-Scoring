@@ -8,6 +8,7 @@ import string
 import re
 import os
 from sklearn.model_selection import train_test_split
+import pickle5 as pickle
 
 from sklearn.preprocessing import (
     MinMaxScaler,
@@ -95,7 +96,8 @@ def get_training_combo():
         )
         training_set = correct_language(training_set)
     else:
-        training_set = pd.read_pickle("data/training_corr.pkl")
+        with open("data/training_corr.pkl", "rb") as fh:
+            training_set = pickle.load(fh) 
 
     print(training_set.head())
 
@@ -114,7 +116,8 @@ def get_training_combo():
         combo_set = pd.concat([combo_set, training_set], sort=False)
         combo_set.to_pickle('data/combo_set.pkl')
     else:
-        combo_set = pd.read_pickle("data/combo_set.pkl")
+        with open("data/combo_set.pkl", "rb") as fh:
+            combo_set = pickle.load(fh) 
 
     return training_set, combo_set
 
@@ -192,7 +195,8 @@ def create_word_vec(training_set, train_cleaned, wordvec_model, text_dim=300):
 
 def load_features():
     # Read generated features from file:
-    additional_features = pd.read_pickle('data/training_features.pkl')
+    with open("data/training_features.pkl", "rb") as fh:
+        additional_features = pickle.load(fh) 
 
     # Use select features from Gini feature importances
     feature_list = [

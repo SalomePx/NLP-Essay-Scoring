@@ -6,3 +6,4 @@ spacy
 TextBlob
 skll
 black
+pickle5
