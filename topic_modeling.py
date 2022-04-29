@@ -112,7 +112,7 @@ def create_plots(training_set):
 
     lda_base = LatentDirichletAllocation(
         n_components=8,
-        n_jobs=-1,
+        n_jobs=1,
         learning_method="batch",
         max_iter=40,
         perp_tol=0.01,
