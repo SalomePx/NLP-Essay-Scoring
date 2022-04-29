@@ -1,0 +1,8 @@
+language-tool-python
+swifter
+pyLDAvis
+seaborn
+spacy
+TextBlob
+skll
+black
