@@ -572,8 +572,8 @@ if __name__ == '__main__':
     plt.savefig('images/scaled_target_score.png', dpi=300)
     X_train, X_test, y_train, y_test, scores_train, scores_test = split_X_y_scores(X, y, scores)
     # Define keras model
-    # model = build_model(X,y,'mlp')
-    model = build_model(X,y,'cnn')
+    model = build_model(X,y,'mlp')
+    # model = build_model(X,y,'cnn')
     # model = build_model(X,y,'lstm')
 
     results = train_model(model, X_train, X_test, y_train, y_test)
