@@ -99,19 +99,11 @@ Link dataset : [https://www.kaggle.com/c/asap-aes/data](https://www.kaggle.com/c
 
 **1. Data Preprocessing**
 
-hello
-
 **2. Machine Learning**
-
-hey
 
 **3. Deep Learning**
 
-hola
-
 **4. BERT**
-
-mama
 
 ## License
 
